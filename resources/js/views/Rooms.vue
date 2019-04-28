@@ -47,28 +47,34 @@
 
     export default {
         name: "rooms",
-        data() {
+        data()
+        {
             return {
-                bookings: {},
-                booking_message: "No bookings available...",
+                bookings: null,
+                booking_message: "No bookings available for this day...",
                 selectedDate: moment().format("YYYY-MM-DD"),
             };
         },
-        beforeMount() {
+        beforeMount()
+        {
             this.fetchBookings(this.selectedDate);
         },
         watch: {
-            selectedDate(newDate, oldDate) {
+            selectedDate(newDate, oldDate)
+            {
                 this.fetchBookings(newDate);
             }
         },
         methods: {
-            fetchBookings(date) {
+            fetchBookings(date)
+            {
                 this.$http.get(`/api/booking/by-date/${date}`)
                     .then((response) => this.bookings = response.data)
                     .catch((error) => console.error(error));
-            }
-        }
+
+            },
+        }, computed: {}
+
     };
 </script>
 
