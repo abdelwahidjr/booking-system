@@ -2505,7 +2505,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       bookings: {},
-      selectedDate: moment__WEBPACK_IMPORTED_MODULE_0___default()().format("YYYY-MM-DD")
+      selectedDate: moment__WEBPACK_IMPORTED_MODULE_0___default()().format("YYYY-MM-DD"),
+      booking_message: "No bookings available..."
     };
   },
   beforeMount: function beforeMount() {
@@ -6706,7 +6707,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/**/\n", ""]);
+exports.push([module.i, "\n[v-cloak][data-v-3adb8569]\n{\n    display : none;\n}\n\n", ""]);
 
 // exports
 
@@ -66845,7 +66846,7 @@ var render = function() {
       ? _c(
           "div",
           { staticClass: "alert alert-info", attrs: { role: "alert" } },
-          [_vm._v("\n        No bookings available...\n    ")]
+          [_vm._v("\n        No room bookings available today ...\n    ")]
         )
       : _vm._e(),
     _vm._v(" "),
@@ -67390,8 +67391,11 @@ var render = function() {
     Object.keys(_vm.bookings).length <= 0
       ? _c(
           "div",
-          { staticClass: "alert alert-info", attrs: { role: "alert" } },
-          [_vm._v("\n        No bookings available...\n    ")]
+          {
+            staticClass: "alert alert-info check_rooms",
+            attrs: { role: "alert" }
+          },
+          [_vm._v("\n        " + _vm._s(_vm.booking_message) + "\n    ")]
         )
       : _vm._e(),
     _vm._v(" "),

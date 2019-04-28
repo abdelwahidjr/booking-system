@@ -3,7 +3,7 @@
         <h1 class="mb-4">My Bookings</h1>
 
         <div class="alert alert-info" role="alert" v-if="Object.keys(bookings).length <= 0">
-            No bookings available...
+            No room bookings available today ...
         </div>
 
         <ul class="list-group" v-if="Object.keys(bookings).length > 0">

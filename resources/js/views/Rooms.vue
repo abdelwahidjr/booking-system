@@ -8,8 +8,8 @@
             </div>
         </div>
 
-        <div class="alert alert-info" role="alert" v-if="Object.keys(bookings).length <= 0">
-            No bookings available...
+        <div class="alert alert-info check_rooms" role="alert" v-if="Object.keys(bookings).length <= 0">
+            {{ booking_message }}
         </div>
 
         <ul class="list-group" v-if="Object.keys(bookings).length > 0">
@@ -50,6 +50,7 @@
         data() {
             return {
                 bookings: {},
+                booking_message: "No bookings available...",
                 selectedDate: moment().format("YYYY-MM-DD"),
             };
         },
@@ -72,5 +73,6 @@
 </script>
 
 <style scoped>
-    /**/
+
+
 </style>

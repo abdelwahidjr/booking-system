@@ -56,7 +56,7 @@ class UserController extends Controller
 
     public function getBookings(): \Illuminate\Support\Collection
     {
-        $bookings = DB::table('bookings')->join('meeting_rooms','bookings.room_id','=','meeting_rooms.id')->select('bookings.*','meeting_rooms.name')->where('user_id','=',Auth::id())->where('end_at','>=',date('Y-m-d H:i:s'))->orderBy('start_at')->get();
+        $bookings = DB::table('bookings')->join('rooms','bookings.room_id','=','rooms.id')->select('bookings.*','rooms.name')->where('user_id','=',Auth::id())->where('end_at','>=',date('Y-m-d H:i:s'))->orderBy('start_at')->get();
         return $bookings->groupBy('name');
     }
 

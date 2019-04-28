@@ -39,10 +39,12 @@ class BookingController extends Controller
         return response()->json($data);
     }
 
+
     public function show(Booking $booking)
     {
         return response()->json($booking);
     }
+
 
     public function update(Request $request,Booking $booking)
     {
@@ -71,6 +73,7 @@ class BookingController extends Controller
         ]);
     }
 
+
     public function destroy(Booking $booking)
     {
         $status = $booking->delete();
@@ -81,12 +84,15 @@ class BookingController extends Controller
         ]);
     }
 
+
     public function getBookingsOfDay($date)
     {
-        $bookings = DB::table('bookings')->join('meeting_rooms','bookings.room_id','=','meeting_rooms.id')->join('users','bookings.user_id','=','users.id')->select('bookings.*','meeting_rooms.name as group_name','users.name as user_name',
+        $bookings = DB::table('bookings')->join('rooms','bookings.room_id','=','rooms.id')->join('users','bookings.user_id','=','users.id')->select('bookings.*','rooms.name as group_name','users.name as user_name',
             'users.email')->where('start_at','>=',$date . ' 00:00:00')->where('start_at','<=',$date . ' 23:59:59')->orderBy('start_at')->get();
+
         return $bookings->groupBy('group_name');
     }
+
 
     private function getDates($startAt,$duration)
     {
@@ -101,6 +107,7 @@ class BookingController extends Controller
             'formattedEnd'   => $end->format('Y-m-d H:i:s'),
         ];
     }
+
 
     private function checkForDateConflict($room,$start,$end)
     {
