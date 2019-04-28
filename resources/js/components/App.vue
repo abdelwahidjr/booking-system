@@ -60,8 +60,6 @@
                 delete this.$http.defaults.headers.common["Authorization"];
                 this.$router.push({name: "login"});
             }
-        }, components: {
-            SemipolarSpinner
         },
 
     };
