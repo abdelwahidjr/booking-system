@@ -63,7 +63,7 @@
         },
         methods: {
             fetchBookings(date) {
-                this.$http.get(`/api/booking/by-date/${ date }`)
+                this.$http.get(`/api/booking/by-date/${date}`)
                     .then((response) => this.bookings = response.data)
                     .catch((error) => console.error(error));
             }

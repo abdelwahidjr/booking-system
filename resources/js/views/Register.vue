@@ -14,13 +14,13 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
                                 <div class="col-md-6">
                                     <input
-                                        id="name"
-                                        type="text"
-                                        class="form-control"
-                                        name="name"
-                                        v-model="name"
-                                        v-validate="'required|alpha|min:3'"
-                                        autofocus>
+                                            id="name"
+                                            type="text"
+                                            class="form-control"
+                                            name="name"
+                                            v-model="name"
+                                            v-validate="'required|alpha|min:3'"
+                                            autofocus>
                                     <div v-show="errors.has('name')" class="invalid-feedback">{{ errors.first('name') }}</div>
                                 </div>
                             </div>
@@ -29,12 +29,12 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                 <div class="col-md-6">
                                     <input
-                                        id="email"
-                                        type="email"
-                                        class="form-control"
-                                        name="email"
-                                        v-model="email"
-                                        v-validate="'required|email'">
+                                            id="email"
+                                            type="email"
+                                            class="form-control"
+                                            name="email"
+                                            v-model="email"
+                                            v-validate="'required|email'">
                                     <div v-show="errors.has('email')" class="invalid-feedback">{{ errors.first('email') }}</div>
                                 </div>
                             </div>
@@ -56,12 +56,12 @@
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
                                 <div class="col-md-6">
                                     <input
-                                        id="password-confirm"
-                                        type="password"
-                                        class="form-control"
-                                        name="passwordConfirmation"
-                                        v-model="passwordConfirmation"
-                                        v-validate="'required|confirmed:password'">
+                                            id="password-confirm"
+                                            type="password"
+                                            class="form-control"
+                                            name="passwordConfirmation"
+                                            v-model="passwordConfirmation"
+                                            v-validate="'required|confirmed:password'">
                                     <div v-show="errors.has('passwordConfirmation')" class="invalid-feedback">{{ errors.first('passwordConfirmation') }}</div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
 <script>
     export default {
         name: "register",
-        data(){
+        data() {
             return {
                 isFormValid: false,
                 name: "",
@@ -92,7 +92,7 @@
                 passwordConfirmation: "",
             };
         },
-        methods : {
+        methods: {
             doRegister() {
                 this.$validator.validateAll()
                     .then((result) => {
@@ -103,7 +103,7 @@
                                     name: this.name,
                                     email: this.email,
                                     password: this.password,
-                                    c_password : this.passwordConfirmation
+                                    c_password: this.passwordConfirmation
                                 })
                                 .then((response) => this.registerLogin(response))
                                 .catch(error => console.error(error));

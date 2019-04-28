@@ -12,7 +12,7 @@ import "./bootstrap";
 VeeValidate.Validator.extend("after_now", {
     getMessage(field/*, args*/) {
         const now = moment().format("DD/MM/YYYY  HH:mm");
-        return `The ${ field } must be after now (${ now }).`;
+        return `The ${field} must be after now (${now}).`;
     },
     validate(value/*, args*/) {
         const now = moment().format("YYYY-MM-DDTHH:mm");
@@ -46,7 +46,7 @@ Vue.mixin({
                 if (token !== null) {
                     this.$http.defaults.headers.common["Content-Type"] = "application/json";
                     this.$http.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-                    this.$router.push({ name: "home" });
+                    this.$router.push({name: "home"});
                 }
             },
             getUser() {

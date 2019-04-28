@@ -39,18 +39,17 @@ class Install extends Command
      */
     public function handle()
     {
-       # shell_exec('composer dump-autoload');
+        # shell_exec('composer dump-autoload');
 
-        Artisan::call('migrate:refresh' , ['--force' => true ,]);
-
-        $this->info(Artisan::output());
-
-        Artisan::call('db:seed' ,
-            ['--force' => true , '--no-interaction' => true ,]);
+        Artisan::call('migrate:refresh',['--force' => true,]);
 
         $this->info(Artisan::output());
 
-        Artisan::call('passport:install' , ['--force' => true ,]);
+        Artisan::call('db:seed',['--force' => true,'--no-interaction' => true,]);
+
+        $this->info(Artisan::output());
+
+        Artisan::call('passport:install',['--force' => true,]);
 
         $this->info(Artisan::output());
     }

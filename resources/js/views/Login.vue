@@ -1,5 +1,5 @@
 <template>
-    <div  class="container d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
+    <div class="container d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
         <div class="row justify-content-center w-100">
             <h1 class="col-md-8 text-center">Booking System</h1>
         </div>
@@ -14,13 +14,13 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
                                 <div class="col-md-6">
                                     <input
-                                        id="email"
-                                        type="email"
-                                        class="form-control"
-                                        name="email"
-                                        v-model="email"
-                                        v-validate="'required|email'"
-                                        autofocus>
+                                            id="email"
+                                            type="email"
+                                            class="form-control"
+                                            name="email"
+                                            v-model="email"
+                                            v-validate="'required|email'"
+                                            autofocus>
                                     <!--<div v-show="!errors.has('email')" class="valid-feedback">Looks good!</div>-->
                                     <div v-show="errors.has('email')" class="invalid-feedback">{{ errors.first('email') }}</div>
                                 </div>
@@ -30,23 +30,23 @@
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
                                 <div class="col-md-6">
                                     <input
-                                        id="password"
-                                        type="password"
-                                        class="form-control"
-                                        name="password"
-                                        v-model="password"
-                                        v-validate="'required|min:6'">
+                                            id="password"
+                                            type="password"
+                                            class="form-control"
+                                            name="password"
+                                            v-model="password"
+                                            v-validate="'required|min:6'">
                                     <div v-show="errors.has('password')" class="invalid-feedback">{{ errors.first('password') }}</div>
                                 </div>
                             </div>
 
                             <!--<div class="form-group row">-->
-                                <!--<div class="col-md-6 offset-md-4">-->
-                                    <!--<div class="form-check">-->
-                                        <!--<input class="form-check-input" type="checkbox" name="remember" id="remember" v-model="remember">-->
-                                        <!--<label class="form-check-label" for="remember">Remember Me</label>-->
-                                    <!--</div>-->
-                                <!--</div>-->
+                            <!--<div class="col-md-6 offset-md-4">-->
+                            <!--<div class="form-check">-->
+                            <!--<input class="form-check-input" type="checkbox" name="remember" id="remember" v-model="remember">-->
+                            <!--<label class="form-check-label" for="remember">Remember Me</label>-->
+                            <!--</div>-->
+                            <!--</div>-->
                             <!--</div>-->
 
                             <div class="form-group row mb-0">

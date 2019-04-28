@@ -13,25 +13,25 @@
                 </div>
                 <table class="table table-hover mt-3">
                     <thead class="thead-light">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Start At</th>
-                            <th scope="col">End At</th>
-                            <th scope="col">Control</th>
-                        </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Start At</th>
+                        <th scope="col">End At</th>
+                        <th scope="col">Control</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(booking, bIndex) in roomBookings" :key="`booking_${booking.id}`">
-                            <th scope="row">{{ bIndex + 1 }}</th>
-                            <td>{{ booking.start_at }}</td>
-                            <td>{{ booking.end_at }}</td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="control">
-                                    <button type="button" class="btn btn-outline-info btn-sm" @click.prevent="gotoBookingEdition(booking.id)">edit</button>
-                                    <button type="button" class="btn btn-outline-danger btn-sm" @click.prevent="deleteBooking(booking.id)">delete</button>
-                                </div>
-                            </td>
-                        </tr>
+                    <tr v-for="(booking, bIndex) in roomBookings" :key="`booking_${booking.id}`">
+                        <th scope="row">{{ bIndex + 1 }}</th>
+                        <td>{{ booking.start_at }}</td>
+                        <td>{{ booking.end_at }}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="control">
+                                <button type="button" class="btn btn-outline-info btn-sm" @click.prevent="gotoBookingEdition(booking.id)">edit</button>
+                                <button type="button" class="btn btn-outline-danger btn-sm" @click.prevent="deleteBooking(booking.id)">delete</button>
+                            </div>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </li>
@@ -56,7 +56,7 @@
         },
         methods: {
             gotoBookingEdition(id) {
-                this.$router.push({ name: "edit-my-booking", params: { id } });
+                this.$router.push({name: "edit-my-booking", params: {id}});
             },
             deleteBooking(id) {
                 swal({
@@ -68,7 +68,7 @@
                 })
                     .then((willDelete) => {
                         if (willDelete) {
-                            this.$http.delete(`/api/booking/${ id }`)
+                            this.$http.delete(`/api/booking/${id}`)
                                 .then(() => {
                                     for (const key in this.bookings) {
                                         this.bookings[key] = this.bookings[key].filter((booking) => booking.id !== id);

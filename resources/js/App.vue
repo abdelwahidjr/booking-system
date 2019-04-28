@@ -54,7 +54,7 @@
                 localStorage.clear();
                 delete this.$http.defaults.headers.common["Content-Type"];
                 delete this.$http.defaults.headers.common["Authorization"];
-                this.$router.push({ name: "login" });
+                this.$router.push({name: "login"});
             }
         },
     };

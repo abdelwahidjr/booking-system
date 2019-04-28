@@ -10,7 +10,7 @@
 
     export default {
         name: "new-booking",
-        components: { BookingForm },
+        components: {BookingForm},
     };
 </script>
 

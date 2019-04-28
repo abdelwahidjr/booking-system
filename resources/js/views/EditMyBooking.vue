@@ -10,14 +10,14 @@
 
     export default {
         name: "edit-my-booking",
-        components: { BookingForm },
+        components: {BookingForm},
         data() {
             return {
                 booking: null,
             };
         },
         beforeMount() {
-            this.$http.get(`/api/booking/${ this.$route.params.id }`)
+            this.$http.get(`/api/booking/${this.$route.params.id}`)
                 .then((response) => this.booking = response.data)
                 .catch((error) => console.error(error));
         }
