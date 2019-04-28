@@ -216,9 +216,9 @@ APACHE_DOCUMENT_ROOT=/var/www/
 ### MYSQL #################################################
 
 MYSQL_VERSION=5.7
-MYSQL_DATABASE=default
-MYSQL_USER=default
-MYSQL_PASSWORD=secret
+MYSQL_DATABASE=booking_db
+MYSQL_USER=user_booking_db
+MYSQL_PASSWORD=secret_booking_db
 MYSQL_PORT=3306
 MYSQL_ROOT_PASSWORD=root
 MYSQL_ENTRYPOINT_INITDB=./mysql/docker-entrypoint-initdb.d
