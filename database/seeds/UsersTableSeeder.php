@@ -8,7 +8,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name'     => 'John Doe',
+            'name'     => 'BookingSYS User',
             'email'    => 'user@booking.test',
             'password' => Hash::make('secret'),
         ]);

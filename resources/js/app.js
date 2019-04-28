@@ -3,7 +3,7 @@ import moment from "moment";
 import VeeValidate from "vee-validate";
 import Vue from "vue";
 import VueIziToast from "vue-izitoast";
-import App from "./App.vue";
+import App from "./components/App.vue";
 import router from "./router";
 
 import "izitoast/dist/css/iziToast.css";

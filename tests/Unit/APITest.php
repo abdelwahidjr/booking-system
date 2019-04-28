@@ -62,7 +62,7 @@ class APITest extends TestCase
 
     public function testRoomDeletion() {
         $user = \App\User::find(1);
-        $room = \App\MeetingRoom::create(['name' => 'To be deleted']);
+        $room = \App\Room::create(['name' => 'To be deleted']);
 
         $response = $this->actingAs($user, 'api')
                          ->json('DELETE', "/api/room/{$room->id}")

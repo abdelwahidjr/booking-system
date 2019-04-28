@@ -13,7 +13,6 @@ class BookingController extends Controller
 {
     public function store(Request $request)
     {
-        //Log::info('test');
         $dates    = $this->getDates($request->startAt,$request->duration);
         $conflict = $this->checkForDateConflict($request->room,$dates->formattedStart,$dates->formattedEnd);
 
@@ -85,7 +84,7 @@ class BookingController extends Controller
     public function getBookingsOfDay($date)
     {
         $bookings = DB::table('bookings')->join('meeting_rooms','bookings.room_id','=','meeting_rooms.id')->join('users','bookings.user_id','=','users.id')->select('bookings.*','meeting_rooms.name as group_name','users.name as user_name',
-                'users.email')->where('start_at','>=',$date . ' 00:00:00')->where('start_at','<=',$date . ' 23:59:59')->orderBy('start_at')->get();
+            'users.email')->where('start_at','>=',$date . ' 00:00:00')->where('start_at','<=',$date . ' 23:59:59')->orderBy('start_at')->get();
         return $bookings->groupBy('group_name');
     }
 
@@ -106,17 +105,17 @@ class BookingController extends Controller
     private function checkForDateConflict($room,$start,$end)
     {
         return DB::table('bookings')->where('room_id','=',$room)->where(function ($query) use ($start,$end)
+        {
+            $query->where(function ($queryBetween) use ($start,$end)
             {
-                $query->where(function ($queryBetween) use ($start,$end)
-                    {
-                        $queryBetween->whereBetween('start_at',[$start,$end])->orWhereBetween('end_at',[$start,$end]);
-                    })->orWhere([
-                        ['start_at','<',$start],
-                        ['end_at','>',$start],
-                    ])->orWhere([
-                        ['start_at','<',$end],
-                        ['end_at','>',$end],
-                    ]);
-            })->exists();
+                $queryBetween->whereBetween('start_at',[$start,$end])->orWhereBetween('end_at',[$start,$end]);
+            })->orWhere([
+                ['start_at','<',$start],
+                ['end_at','>',$start],
+            ])->orWhere([
+                ['start_at','<',$end],
+                ['end_at','>',$end],
+            ]);
+        })->exists();
     }
 }
