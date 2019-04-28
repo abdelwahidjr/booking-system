@@ -17,12 +17,16 @@ const router = new VueRouter({
     base: process.env.BASE_URL,
     linkActiveClass: "is-active",
     linkExactActiveClass: "is-active-exact",
-    scrollBehavior(to, from, savedPosition) {
-        if (to.hash) {
+    scrollBehavior(to, from, savedPosition)
+    {
+        if (to.hash)
+        {
             return {selector: to.hash};
-        } else if (savedPosition) {
+        } else if (savedPosition)
+        {
             return savedPosition;
-        } else {
+        } else
+        {
             return {x: 0, y: 0};
         }
     },
@@ -77,12 +81,15 @@ const router = new VueRouter({
     ]
 });
 
-router.beforeEach((to, from, next) => {
-    if (to.name !== "login" && to.name !== "register" && !localStorage.getItem("jwt")) {
+router.beforeEach((to, from, next) =>
+{
+    if (to.name !== "login" && to.name !== "register" && !localStorage.getItem("jwt"))
+    {
         return next("login");
     }
 
-    if ((to.name === "login" || to.name === "register") && localStorage.getItem("jwt")) {
+    if ((to.name === "login" || to.name === "register") && localStorage.getItem("jwt"))
+    {
         return next(from.path || "/");
     }
 

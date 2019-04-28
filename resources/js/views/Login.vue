@@ -66,7 +66,8 @@
 <script>
     export default {
         name: "login",
-        data() {
+        data()
+        {
             return {
                 isFormValid: false,
                 email: "",
@@ -75,10 +76,13 @@
             };
         },
         methods: {
-            login() {
+            login()
+            {
                 this.$validator.validateAll()
-                    .then((result) => {
-                        if (result) {
+                    .then((result) =>
+                    {
+                        if (result)
+                        {
                             this.isFormValid = true;
                             return this.$http
                                 .post("/api/login", {

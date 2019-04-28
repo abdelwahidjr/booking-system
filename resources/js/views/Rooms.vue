@@ -8,7 +8,7 @@
             </div>
         </div>
 
-        <div class="alert alert-info check_rooms" role="alert" v-if="Object.keys(bookings).length <= 0">
+        <div class="alert alert-info" role="alert" v-if="Object.keys(bookings).length <= 0">
             {{ booking_message }}
         </div>
 
@@ -50,9 +50,10 @@
         data()
         {
             return {
-                bookings: null,
+                bookings: {},
                 booking_message: "No bookings available for this day...",
                 selectedDate: moment().format("YYYY-MM-DD"),
+                display_msg: "none",
             };
         },
         beforeMount()
@@ -71,7 +72,6 @@
                 this.$http.get(`/api/booking/by-date/${date}`)
                     .then((response) => this.bookings = response.data)
                     .catch((error) => console.error(error));
-
             },
         }, computed: {}
 
@@ -79,6 +79,5 @@
 </script>
 
 <style scoped>
-
 
 </style>

@@ -3,7 +3,7 @@
         <h1 class="mb-4">My Bookings</h1>
 
         <div class="alert alert-info" role="alert" v-if="Object.keys(bookings).length <= 0">
-            No room bookings available today ...
+            {{ booking_message }}
         </div>
 
         <ul class="list-group" v-if="Object.keys(bookings).length > 0">
@@ -44,21 +44,26 @@
 
     export default {
         name: "my-bookings-index",
-        data() {
+        data()
+        {
             return {
                 bookings: {},
+                booking_message: "No bookings available for today ...",
             };
         },
-        beforeMount() {
+        beforeMount()
+        {
             this.$http.get("/api/my-bookings")
                 .then((response) => this.bookings = response.data)
                 .catch((error) => console.error(error));
         },
         methods: {
-            gotoBookingEdition(id) {
+            gotoBookingEdition(id)
+            {
                 this.$router.push({name: "edit-my-booking", params: {id}});
             },
-            deleteBooking(id) {
+            deleteBooking(id)
+            {
                 swal({
                     title: "Are you sure?",
                     text: "Once deleted, you will not be able to recover it!",
@@ -66,11 +71,15 @@
                     buttons: true,
                     dangerMode: true,
                 })
-                    .then((willDelete) => {
-                        if (willDelete) {
+                    .then((willDelete) =>
+                    {
+                        if (willDelete)
+                        {
                             this.$http.delete(`/api/booking/${id}`)
-                                .then(() => {
-                                    for (const key in this.bookings) {
+                                .then(() =>
+                                {
+                                    for (const key in this.bookings)
+                                    {
                                         this.bookings[key] = this.bookings[key].filter((booking) => booking.id !== id);
                                     }
                                     swal("Your booking has been deleted!", {

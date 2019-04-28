@@ -36,6 +36,7 @@
             </div>
         </nav>
 
+
         <router-view></router-view>
     </div>
 </template>
@@ -43,25 +44,32 @@
 <script>
     export default {
         name: "app",
-        beforeMount() {
-            if (this.isAuth()) {
+        beforeMount()
+        {
+            if (this.isAuth())
+            {
                 this.$http.defaults.headers.common["Content-Type"] = "application/json";
                 this.$http.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem("jwt")}`;
             }
         },
         methods: {
-            logout() {
+            logout()
+            {
                 localStorage.clear();
                 delete this.$http.defaults.headers.common["Content-Type"];
                 delete this.$http.defaults.headers.common["Authorization"];
                 this.$router.push({name: "login"});
             }
+        }, components: {
+            SemipolarSpinner
         },
+
     };
 </script>
 
 <style scoped>
-    .pt-6 {
-        padding-top: calc(1rem * 3.5);
+    .pt-6
+    {
+        padding-top : calc(1rem * 3.5);
     }
 </style>

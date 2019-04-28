@@ -83,7 +83,8 @@
 <script>
     export default {
         name: "register",
-        data() {
+        data()
+        {
             return {
                 isFormValid: false,
                 name: "",
@@ -93,10 +94,13 @@
             };
         },
         methods: {
-            doRegister() {
+            doRegister()
+            {
                 this.$validator.validateAll()
-                    .then((result) => {
-                        if (result) {
+                    .then((result) =>
+                    {
+                        if (result)
+                        {
                             this.isFormValid = true;
                             return this.$http
                                 .post("/api/register", {

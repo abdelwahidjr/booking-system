@@ -5,16 +5,17 @@ import Vue from "vue";
 import VueIziToast from "vue-izitoast";
 import App from "./components/App.vue";
 import router from "./router";
-
 import "izitoast/dist/css/iziToast.css";
 import "./bootstrap";
 
 VeeValidate.Validator.extend("after_now", {
-    getMessage(field/*, args*/) {
+    getMessage(field/*, args*/)
+    {
         const now = moment().format("DD/MM/YYYY  HH:mm");
         return `The ${field} must be after now (${now}).`;
     },
-    validate(value/*, args*/) {
+    validate(value/*, args*/)
+    {
         const now = moment().format("YYYY-MM-DDTHH:mm");
         return moment(value).isAfter(moment(now));
     }
@@ -34,31 +35,37 @@ Vue.use(VueIziToast, {
 Vue.prototype.$http = axios;
 
 Vue.mixin({
-    data() {
+    data()
+    {
         return {
-            registerLogin(response) {
+            registerLogin(response)
+            {
                 const token = response.data.success.token;
 
                 localStorage.setItem("user", JSON.stringify(response.data.success.user));
                 localStorage.setItem("jwt", token);
                 localStorage.setItem("expiresAt", JSON.stringify(response.data.success.expiresAt));
 
-                if (token !== null) {
+                if (token !== null)
+                {
                     this.$http.defaults.headers.common["Content-Type"] = "application/json";
                     this.$http.defaults.headers.common["Authorization"] = `Bearer ${token}`;
                     this.$router.push({name: "home"});
                 }
             },
-            getUser() {
+            getUser()
+            {
                 const lsUser = localStorage.getItem("user");
 
-                if (lsUser) {
+                if (lsUser)
+                {
                     return JSON.parse(lsUser);
                 }
 
                 return null;
             },
-            isAuth() {
+            isAuth()
+            {
                 const jwt = localStorage.getItem("jwt");
                 const exp = JSON.parse(localStorage.getItem("expiresAt"));
                 return jwt !== null && moment(exp.date).isSameOrAfter(moment());
@@ -66,6 +73,7 @@ Vue.mixin({
         }
     }
 });
+
 
 new Vue({
     router,

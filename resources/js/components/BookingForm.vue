@@ -54,7 +54,8 @@
                 default: null
             },
         },
-        data() {
+        data()
+        {
             return {
                 isFormValid: false,
                 rooms: [],
@@ -63,20 +64,24 @@
                 duration: null,
             };
         },
-        beforeMount() {
+        beforeMount()
+        {
             this.$http.get("/api/room")
                 .then((response) => this.rooms = response.data)
                 .catch((error) => console.log(error));
         },
-        mounted() {
-            if (this.booking) {
+        mounted()
+        {
+            if (this.booking)
+            {
                 this.selectedRoom = this.booking.room_id;
                 this.startAt = moment(this.booking.start_at).format("YYYY-MM-DDTHH:mm");
                 this.duration = moment(this.booking.end_at).diff(this.booking.start_at, 'minutes');
             }
         },
         methods: {
-            sendBooking() {
+            sendBooking()
+            {
                 const data = {
                     room: this.selectedRoom,
                     startAt: this.startAt,
@@ -84,22 +89,28 @@
                 };
 
                 this.$validator.validateAll()
-                    .then((result) => {
-                        if (result) {
+                    .then((result) =>
+                    {
+                        if (result)
+                        {
                             this.isFormValid = true;
 
-                            if (!this.booking) {
+                            if (!this.booking)
+                            {
                                 this.$http
                                     .post("/api/booking", data)
-                                    .then(() => {
+                                    .then(() =>
+                                    {
                                         this.$toast.success('Room booked!', 'Success');
                                         this.$router.push({name: 'my-bookings'});
                                     })
                                     .catch((error) => this.$toast.error(error.response.data.message, 'Something went wrong.'));
-                            } else {
+                            } else
+                            {
                                 this.$http
                                     .patch(`/api/booking/${this.booking.id}`, data)
-                                    .then(() => {
+                                    .then(() =>
+                                    {
                                         this.$toast.success('Booking edited!', 'Success');
                                         this.$router.back();
                                     })
@@ -110,7 +121,8 @@
                         this.isFormValid = false;
                     });
             },
-            goBack() {
+            goBack()
+            {
                 this.$router.back();
             },
         },
