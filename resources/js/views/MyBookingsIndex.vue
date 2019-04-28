@@ -48,7 +48,7 @@
         {
             return {
                 bookings: {},
-                booking_message: "No bookings available for today ...",
+                booking_message: "No bookings available today ...",
             };
         },
         beforeMount()

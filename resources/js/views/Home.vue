@@ -17,5 +17,8 @@
 </script>
 
 <style scoped>
-    /**/
-</style>
+    .jumbotron
+    {
+        text-align : center;
+
+    }</style>

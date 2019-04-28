@@ -9,10 +9,6 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'home' }">Home</router-link>
-                    </li>
-
-                    <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'rooms' }">Rooms</router-link>
                     </li>
                 </ul>
@@ -69,5 +65,12 @@
     .pt-6
     {
         padding-top : calc(1rem * 3.5);
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-link
+    {
+        padding-right : 2.0rem;
+        padding-left  : 2.0rem;
+
     }
 </style>

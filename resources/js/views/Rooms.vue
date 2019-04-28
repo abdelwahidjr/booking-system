@@ -51,7 +51,7 @@
         {
             return {
                 bookings: {},
-                booking_message: "No bookings available for this day...",
+                booking_message: "No bookings available for => " + moment().format("DD-MM-YYYY"),
                 selectedDate: moment().format("YYYY-MM-DD"),
                 display_msg: "none",
             };
