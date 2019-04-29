@@ -85753,7 +85753,7 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: "history",
-  base: Object({"MIX_PUSHER_APP_KEY":"key1234","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"}).BASE_URL,
+  base: Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"key1234","NODE_ENV":"development"}).BASE_URL,
   linkActiveClass: "is-active",
   linkExactActiveClass: "is-active-exact",
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
@@ -86606,8 +86606,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\abdelwahidjr\code\booking-system\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\abdelwahidjr\code\booking-system\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
