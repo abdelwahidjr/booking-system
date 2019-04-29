@@ -15,13 +15,17 @@
 
         <div class="form-group">
             <label for="startAt">Start when</label>
+
             <input
-                    type="datetime-local"
-                    class="form-control"
-                    id="startAt"
-                    name="startAt"
-                    v-model="startAt"
-                    v-validate="'required|after_now'">
+                   type="datetime-local"
+                   class="form-control"
+                   id="startAt"
+                   name="startAt"
+                   v-model="startAt"
+                   v-validate="'required|date_format:yyyy-MM-dd\'T\'HH:mm|after_now'">
+
+            /* date_format:yyyy-MM-dd\'T\'HH:mm  because datetime-local separate T between date&time */
+
             <div v-show="errors.has('startAt')" class="invalid-feedback">{{ errors.first('startAt') }}</div>
         </div>
 
@@ -78,6 +82,7 @@
                 this.startAt = moment(this.booking.start_at).format("YYYY-MM-DDTHH:mm");
                 this.duration = moment(this.booking.end_at).diff(this.booking.start_at, 'minutes');
             }
+
         },
         methods: {
             sendBooking()
