@@ -24,7 +24,9 @@
                    v-model="startAt"
                    v-validate="'required|date_format:yyyy-MM-dd\'T\'HH:mm|after_now'">
 
-            /* date_format:yyyy-MM-dd\'T\'HH:mm  because datetime-local separate T between date&time */
+<!--
+             date_format:yyyy-MM-dd\'T\'HH:mm  because datetime-local separate T between date&time
+-->
 
             <div v-show="errors.has('startAt')" class="invalid-feedback">{{ errors.first('startAt') }}</div>
         </div>
